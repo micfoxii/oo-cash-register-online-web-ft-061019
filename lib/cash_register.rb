@@ -1,7 +1,7 @@
 require 'pry'
 
 class CashRegister
-  attr_accessor :total, :discount, :quantity, :price
+  attr_accessor :total, :discount, :quantity, :price, :items
   
   def initialize(discount = 0)
     @total = 0
@@ -28,11 +28,7 @@ class CashRegister
       "There is no discount to apply."
     end
   end
-  
-  def items
-    @items
-  end
-  
+
   def void_last_transaction
     total_less_refund =  @total - @transactions.pop
     @transactions << total_less_refund 
